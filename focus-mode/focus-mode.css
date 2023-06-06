@@ -1,3 +1,8 @@
+#csdn-toolbar, div.toolbar-container, div.csdn-side-toolbar, div.user-profile-body-left, #copyright-box
+{
+    display: none;
+}
+
 body > .scaffold > :is(top-nav, navigation-rail, side-nav, footer),
 main > :not(:last-child),
 main > :last-child > navigation-tree,

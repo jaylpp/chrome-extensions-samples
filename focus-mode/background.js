@@ -6,9 +6,12 @@ chrome.runtime.onInstalled.addListener(() => {
 
 const extensions = 'https://developer.chrome.com/docs/extensions'
 const webstore = 'https://developer.chrome.com/docs/webstore'
+const csdn = 'https://blog.csdn.net'
 
 chrome.action.onClicked.addListener(async (tab) => {
-    if (tab.url.startsWith(extensions) || tab.url.startsWith(webstore)) {
+    console.log("start to parse url")
+    if (tab.url.startsWith(extensions) || tab.url.startsWith(webstore) || tab.url.startsWith(csdn)) {
+        console.log("this url is allowed to be handled")
         // Retrieve the action badge to check if the extension is 'ON' or 'OFF'
         const prevState = await chrome.action.getBadgeText({tabId: tab.id});
         // Next state will always be the opposite
@@ -32,5 +35,8 @@ chrome.action.onClicked.addListener(async (tab) => {
                 target: { tabId: tab.id },
             });
         }
+    } else{
+        console.log("this url is not allowed to be handled")
     }
+    console.log("end to parse url")
 });
