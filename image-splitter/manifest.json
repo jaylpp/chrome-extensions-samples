@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "Image Splitter",
+  "description": "Split images into four parts and download them.",
+  "version": "1.0.2",
+  "permissions": ["downloads"],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  }
+}
