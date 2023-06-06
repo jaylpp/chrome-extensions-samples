@@ -1,0 +1,12 @@
+.DS_Store
+
+_gsdata_/
+node_modules/
+
+dist
+*.local
+.vscode/settings.json
+.vscode/launch.json
+
+/package-lock.json
+.idea/*
