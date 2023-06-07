@@ -1,7 +1,6 @@
 const tabs = await chrome.tabs.query({
     url: [
-        "https://developer.chrome.com/docs/webstore/*",
-        "https://developer.chrome.com/docs/extensions/*",
+        "https://blog.csdn.net/*"
     ],
 });
 
@@ -28,9 +27,16 @@ for (const tab of tabs) {
 }
 document.querySelector("ul").append(...elements);
 
-const button = document.querySelector("button");
+const button = document.querySelector("#group");
 button.addEventListener("click", async () => {
     const tabIds = tabs.map(({ id }) => id);
     const group = await chrome.tabs.group({ tabIds });
-    await chrome.tabGroups.update(group, { title: "DOCS" });
+    chrome.tabGroups.update(group, { title: "CSDN Tabs" , color: "blue"});
+});
+
+const ungroupButton = document.querySelector("#ungroup");
+ungroupButton.addEventListener("click", async () => {
+    const tabIds = tabs.map(({ id }) => id);
+    console.log("tabIds", tabIds)
+    chrome.tabs.ungroup(tabIds);
 });
